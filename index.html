@@ -28,6 +28,62 @@
                 100% 100%
             );
         }
+
+        /* ==================== 在这里为你新增了纯 CSS 文字动画 ==================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleUp {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* 适用于大标题 */
+        .animate-title {
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* 适用于副标题/描述文字 */
+        .animate-desc {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.2s; /* 稍微延迟，营造错落感 */
+        }
+
+        /* 适用于按钮组 */
+        .animate-buttons {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation-delay: 0.4s;
+        }
+
+        /* 适用于数据数字 */
+        .animate-stat-num {
+            opacity: 0;
+            animation: scaleUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation-delay: 0.3s;
+        }
+        
+        /* 适用于数据标签文本 */
+        .animate-stat-text {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.5s;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
@@ -41,7 +97,6 @@
             </div>
         </div>
 
-        <!-- 导航栏：已经为您去掉了 ABOUT 的下方黑边 -->
         <nav class="hidden md:flex space-x-10 text-xs font-bold tracking-widest text-[#000000]">
             <a href="#home" class="hover:opacity-60 transition pb-1">HOME</a>
             <a href="#about" class="hover:opacity-60 transition pb-1">ABOUT</a>
@@ -59,20 +114,19 @@
 
         <div class="w-full md:w-[42%] bg-[#F7F5F0] flex flex-col justify-center px-6 md:pl-16 md:pr-10 py-12 md:py-20 z-10">
             <div class="max-w-xl space-y-6">
-                <h2 class="text-4xl md:text-[52px] font-serif font-extrabold text-[#111625] leading-[1.1] tracking-wide">
+                <h2 class="animate-title text-4xl md:text-[52px] font-serif font-extrabold text-[#111625] leading-[1.1] tracking-wide">
                     EMPOWER YOUTH,<br>BUILD A STRONGER COMMUNITY
                 </h2>
-                <p class="text-[#4A4A4A] text-sm md:text-base leading-relaxed max-w-sm font-medium">
+                <p class="animate-desc text-[#4A4A4A] text-sm md:text-base leading-relaxed max-w-sm font-medium">
                     We support youth development and community engagement in Permatang Tinggi through meaningful programmes and initiatives.
                 </p>
 
-                <div class="flex items-center space-x-4 pt-4">
+                <div class="animate-buttons flex items-center space-x-4 pt-4">
                     <button onclick="openDonateModal()" class="bg-[#2D2D2D] text-white text-xs font-bold tracking-widest px-8 py-4 rounded shadow-lg hover:bg-black transition uppercase cursor-pointer">
                         DONATE NOW
                     </button>
-                    <!-- Click here will jump to second screen -->
                     <a href="#about" class="bg-[#F0ECE3] text-[#333333] text-xs font-bold tracking-widest px-6 py-4 rounded hover:bg-[#E5DFD4] transition uppercase border border-gray-300 text-center flex items-center justify-center">
-                        LEARAN MORE
+                        LEARN MORE
                     </a>
                 </div>
             </div>
@@ -80,7 +134,6 @@
 
         <div class="w-full md:w-[58%] min-h-[400px] md:min-h-full relative bg-[#E5E7EB]">
             <div class="absolute inset-0 bg-gray-300 md:torn-paper-edge overflow-hidden">
-                <!-- 修复了原本掉在标签外面的 style 样式，让图片重新精准锁死 -->
                 <img src="pbppt volunteer.jpg" 
                      alt="Youth Community" 
                      class="absolute"
@@ -90,30 +143,24 @@
 
     </main>
 
-    <!-- SECOND SCREEN: ABOUT US (1:1 from image_e8c433.png) -->
     <section id="about" class="w-full min-h-screen bg-[#F7F5F0] flex flex-col md:flex-row items-stretch border-t border-gray-200/50">
         
-        <!-- Left Side: Activity Photo with Left Torn Edge -->
         <div class="w-full md:w-[45%] min-h-[350px] md:min-h-full relative overflow-hidden bg-[#E5E7EB]">
             <div class="absolute inset-0 bg-gray-400 md:torn-paper-edge-left overflow-hidden">
-                <!-- You can upload your image_e8c433.png left photo to GitHub and change name here -->
                 <img src="maf volunteer.jpg" 
                      alt="About PBPPT Activities" 
                      class="w-full h-full object-cover">
             </div>
         </div>
 
-        <!-- Right Side: Content Area -->
         <div class="w-full md:w-[55%] flex flex-col justify-center px-6 md:px-16 py-16 md:py-24">
             <div class="max-w-xl">
-                <!-- Title Style -->
-                <div class="mb-8">
+                <div class="animate-title mb-8">
                     <h2 class="text-4xl md:text-[46px] font-serif font-extrabold text-[#111625] tracking-wide uppercase">ABOUT US</h2>
                     <div class="w-16 h-1 bg-black mt-2"></div>
                 </div>
 
-                <!-- Paragraphs -->
-                <div class="space-y-6 text-[#2D2D2D] text-sm md:text-base leading-relaxed font-medium">
+                <div class="animate-desc space-y-6 text-[#2D2D2D] text-sm md:text-base leading-relaxed font-medium">
                     <p>
                         Persatuan Belia Perkampungan Permatang Tinggi is a youth organisation focused on leadership development, community service, cultural activities and volunteerism since 1970.
                     </p>
@@ -122,37 +169,30 @@
                     </p>
                 </div>
 
-                <!-- Counters / Stats Row -->
                 <div class="grid grid-cols-3 gap-4 pt-12 border-t border-gray-300/60 mt-12 text-center md:text-left">
                     
-                    <!-- Stat 1 -->
                     <div class="flex flex-col items-center md:items-start space-y-2">
-                        <!-- SVG Youth Icon -->
                         <svg class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
                         </svg>
-                        <span class="text-2xl md:text-3xl font-bold text-black font-serif pt-1">50+</span>
-                        <span class="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase leading-tight">Youth<br>Volunteers</span>
+                        <span class="animate-stat-num text-2xl md:text-3xl font-bold text-black font-serif pt-1">50+</span>
+                        <span class="animate-stat-text text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase leading-tight">Youth<br>Volunteers</span>
                     </div>
 
-                    <!-- Stat 2 -->
                     <div class="flex flex-col items-center md:items-start space-y-2 border-x border-gray-300/60 px-2">
-                        <!-- SVG Heart Icon -->
                         <svg class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                         </svg>
-                        <span class="text-2xl md:text-3xl font-bold text-black font-serif pt-1">10+</span>
-                        <span class="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase leading-tight">Yearly<br>Programs</span>
+                        <span class="animate-stat-num text-2xl md:text-3xl font-bold text-black font-serif pt-1">10+</span>
+                        <span class="animate-stat-text text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase leading-tight">Yearly<br>Programs</span>
                     </div>
 
-                    <!-- Stat 3 -->
                     <div class="flex flex-col items-center md:items-start space-y-2">
-                        <!-- SVG Calendar Icon -->
                         <svg class="w-8 h-8 text-gray-800" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5 a2.25 2.25 0 0121 11.25v7.5" />
                         </svg>
-                        <span class="text-2xl md:text-3xl font-bold text-black font-serif pt-1">Since 1970</span>
-                        <span class="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase leading-tight">Serving Our<br>Community</span>
+                        <span class="animate-stat-num text-2xl md:text-3xl font-bold text-black font-serif pt-1">Since 1970</span>
+                        <span class="animate-stat-text text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase leading-tight">Serving Our<br>Community</span>
                     </div>
 
                 </div>
