@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Persatuan Belia Perkampungan Permatang Tinggi</title>
+    <!-- 引入 Tailwind CSS (v4) -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 引入高质感英文字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght=700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #F7F5F0; }
         .font-serif { font-family: 'Playfair Display', serif; }
@@ -23,21 +25,28 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
 
+    <!-- NAV BAR (导航栏) -->
     <header class="w-full bg-[#F7F5F0] px-6 md:px-16 py-5 flex justify-between items-center z-40">
+        <!-- 左侧 Logo 与标题 -->
         <div class="flex items-center space-x-3">
-            <img src="Logo PBPPT.png" alt="Logo PBPPT" class="w-12 h-12 object-contain rounded-full">
+            <!-- 🌟 这里已经成功更换为你发来的最新图片：Logo PBPPT_2.png -->
+            <img src="Logo PBPPT_2.png" alt="Logo PBPPT" class="w-12 h-12 object-contain rounded-full">
             <div>
-                <h1 class="text-sm md:text-base font-bold text-[#000000] tracking-wide">Persatuan Belia</h1>
-                <p class="text-xs text-gray-800 font-semibold -mt-0.5">Perkampungan Permatang Tinggi</p>
+                <!-- 🌟 这里的两行名字已经全部完成了 Bold 加粗修改 -->
+                <h1 class="text-sm md:text-base font-extrabold text-[#000000] tracking-wide">Persatuan Belia</h1>
+                <p class="text-xs text-gray-900 font-bold -mt-0.5">Perkampungan Permatang Tinggi</p>
             </div>
         </div>
 
+        <!-- 中间菜单 -->
         <nav class="hidden md:flex space-x-10 text-xs font-bold tracking-widest text-[#000000]">
             <a href="#home" class="hover:opacity-60 transition pb-1 border-b-2 border-black">HOME</a>
             <a href="#about" class="hover:opacity-60 transition pb-1">ABOUT</a>
+            <!-- 点击跳转到 WhatsApp -->
             <a href="https://wa.me/60123456789?text=你好！我想了解更多关于芭冬丁宜村青年会的信息。" target="_blank" class="hover:opacity-60 transition pb-1">CONTACT</a>
         </nav>
 
+        <!-- 右侧按钮 -->
         <div>
             <button onclick="openJoinModal()" class="bg-[#2D2D2D] text-white text-xs font-bold tracking-widest px-6 py-3 rounded uppercase hover:bg-black transition shadow-sm cursor-pointer">
                 JOIN US
@@ -45,8 +54,10 @@
         </div>
     </header>
 
+    <!-- HERO SECTION (第一面主内容区) -->
     <main id="home" class="flex-grow w-full flex flex-col md:flex-row items-stretch relative overflow-hidden">
         
+        <!-- 左侧文字区 -->
         <div class="w-full md:w-[42%] bg-[#F7F5F0] flex flex-col justify-center px-6 md:pl-16 md:pr-10 py-12 md:py-20 z-10">
             <div class="max-w-xl space-y-6">
                 <h2 class="text-4xl md:text-[52px] font-serif font-extrabold text-[#111625] leading-[1.1] tracking-wide">
@@ -56,6 +67,7 @@
                     We support youth development and community engagement in Permatang Tinggi through meaningful programmes and initiatives.
                 </p>
                 
+                <!-- 底部交互按钮 -->
                 <div class="flex items-center space-x-4 pt-4">
                     <button onclick="openDonateModal()" class="bg-[#2D2D2D] text-white text-xs font-bold tracking-widest px-8 py-4 rounded shadow-lg hover:bg-black transition uppercase cursor-pointer">
                         DONATE NOW
@@ -67,6 +79,7 @@
             </div>
         </div>
 
+        <!-- 右侧大图区：带有撕纸边缘 -->
         <div class="w-full md:w-[58%] min-h-[400px] md:min-h-full relative bg-[#E5E7EB]">
             <div class="absolute inset-0 bg-gray-300 md:torn-paper-edge overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" 
@@ -81,6 +94,7 @@
 
     </main>
 
+    <!-- 🎁 DONATE QR CODE POPUP (捐款弹窗组件) -->
     <div id="donateModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 text-center shadow-2xl transform scale-95 transition-transform duration-300" id="donateContent">
             <div class="flex justify-between items-center mb-4">
@@ -102,6 +116,7 @@
         </div>
     </div>
 
+    <!-- 🙋‍♂️ JOIN US POPUP (加入我们弹窗组件) -->
     <div id="joinModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 text-center shadow-2xl transform scale-95 transition-transform duration-300" id="joinContent">
             <div class="flex justify-between items-center mb-4">
@@ -121,6 +136,7 @@
         </div>
     </div>
 
+    <!-- 脚本逻辑 -->
     <script>
         function openDonateModal() {
             document.getElementById('donateModal').classList.remove('hidden');
@@ -132,7 +148,9 @@
         function closeDonateModal() {
             document.getElementById('donateModal').classList.add('opacity-0');
             document.getElementById('donateContent').classList.add('scale-95');
-            setTimeout(() => document.getElementById('donateModal').add('hidden'), 300);
+            setTimeout(() => {
+                document.getElementById('donateModal').classList.add('hidden');
+            }, 300);
         }
 
         function openJoinModal() {
@@ -145,7 +163,9 @@
         function closeJoinModal() {
             document.getElementById('joinModal').classList.add('opacity-0');
             document.getElementById('joinContent').classList.add('scale-95');
-            setTimeout(() => document.getElementById('joinModal').classList.add('hidden'), 300);
+            setTimeout(() => {
+                document.getElementById('joinModal').classList.add('hidden');
+            }, 300);
         }
     </script>
 
