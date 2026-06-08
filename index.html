@@ -97,7 +97,6 @@
             </div>
         </div>
 
-        <!-- 第一面导航栏：已按要求移除 CHALLENGES，仅保留 HOME, ABOUT, CONTACT -->
         <nav class="hidden md:flex space-x-10 text-sm font-bold tracking-widest text-[#000000]">
             <a href="#home" class="hover:opacity-60 transition pb-1">HOME</a>
             <a href="#about" class="hover:opacity-60 transition pb-1">ABOUT</a>
@@ -127,7 +126,7 @@
                         DONATE NOW
                     </button>
                     <a href="#about" class="bg-[#F0ECE3] text-[#333333] text-xs font-bold tracking-widest px-6 py-4 rounded hover:bg-[#E5DFD4] transition uppercase border border-gray-300 text-center flex items-center justify-center">
-                        LEARN MORE
+                        LEARMORE
                     </a>
                 </div>
             </div>
@@ -144,6 +143,34 @@
 
     </main>
 
+    <div id="donateModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4 transition-all duration-300">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 md:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300 flex flex-col items-center text-center">
+            
+            <button onclick="closeDonateModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black transition cursor-pointer p-1 rounded-full hover:bg-gray-100">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <div class="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mb-4 text-[#064E3B]">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v14.25M2.25 11.25h19.5m-18 4.5h19.5m-15.75 5.25v-13.5A2.25 2.25 0 016.25 3h11.5a2.25 2.25 0 012.25 2.25v13.5M10.5 7.5h3m-3 3h3m-3 3h3" />
+                </svg>
+            </div>
+
+            <h3 class="font-serif font-extrabold text-2xl text-[#1A1F36] mb-2 uppercase tracking-wide">BANK TRANSFER</h3>
+            <p class="text-xs md:text-sm text-gray-500 font-medium max-w-xs mb-6">Thank you for supporting our youth development and local community initiatives.</p>
+            
+            <div class="w-full bg-[#F7F5F0] rounded-xl p-5 border border-gray-200/60 text-left space-y-4">
+                <div>
+                    <span class="text-[10px] font-bold tracking-widest text-gray-400 uppercase block">Bank Name</span>
+                    <span class="text-base font-extrabold text-[#1A1F36] block mt-0.5">Public Bank</span>
+                </div>
+                
+                <div class="border-t border-gray-200/50 pt-3 relative group">
+                    <span class="text-[10px] font-bold tracking-widest text-gray-400 uppercase block">Account Number</span>
+                    <div class="flex items-center justify-between mt-0.5">
+                        <span id="accountNo" class="text-lg font-mono font-extrabold text-black tracking-wider">31564
     <!-- SECOND SCREEN: ABOUT US -->
     <section id="about" class="w-full min-h-screen bg-[#F7F5F0] flex flex-col md:flex-row items-stretch border-t border-gray-200/50">
         
