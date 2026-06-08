@@ -691,4 +691,68 @@
                 <div>
                     <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-0.5">ACCOUNT NUMBER</span>
                     <div class="flex justify-between items-center">
-                        <p
+                        <p id="accountNum" class="text-lg font-serif font-extrabold text-[#130F32] tracking-wide">3156411220</p>
+                        <button onclick="copyAccountNumber()" class="text-[11px] font-bold text-[#0B401B] bg-white border border-gray-200/80 px-3 py-1 rounded shadow-sm hover:bg-gray-50 active:scale-95 transition-all cursor-pointer">
+                            COPY
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-0.5">ACCOUNT NAME</span>
+                    <p class="text-sm font-serif font-extrabold text-[#130F32] leading-snug uppercase">
+                        PERSATUAN BELIA PERKAMPUNGAN<br>PERMATANG TINGGI
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-[11px] text-gray-400 text-center leading-normal">
+                Please provide transfer receipt via WhatsApp link in CONTACT if needed.
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+    // 打开弹窗
+    function openBankModal() {
+        const modal = document.getElementById('bankModal');
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // 阻止底层页面滚动
+    }
+
+    // 关闭弹窗
+    function closeBankModal() {
+        const modal = document.getElementById('bankModal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = ''; // 恢复滚动
+    }
+
+    // 点击弹窗外部背景关闭
+    function closeBankModalExternal(event) {
+        const modal = document.getElementById('bankModal');
+        if (event.target === modal) {
+            closeBankModal();
+        }
+    }
+
+    // 快捷一键复制卡号功能
+    function copyAccountNumber() {
+        const accountNumber = document.getElementById('accountNum').innerText;
+        navigator.clipboard.writeText(accountNumber).then(() => {
+            alert('Account number copied successfully!');
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    }
+</script>
+
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    .animate-fade-in {
+        animation: fadeIn 0.25s ease-out forwards;
+    }
+</style>
