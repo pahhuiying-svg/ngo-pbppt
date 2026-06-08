@@ -1,3 +1,4 @@
+ <!-- FIRST SCREEN-->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -84,6 +85,21 @@
             animation: fadeInUp 0.6s ease forwards;
             animation-delay: 0.5s;
         }
+
+        /* ==================== 新增：与Page 6一致的弹窗动画 ==================== */
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .animate-modal-in {
+            animation: modalFadeIn 0.25s ease-out forwards;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
@@ -124,7 +140,7 @@
                 <div class="animate-buttons flex items-center space-x-4 pt-4">
                     <button onclick="openDonateModal()" class="bg-[#2D2D2D] text-white text-xs font-bold tracking-widest px-8 py-4 rounded shadow-lg hover:bg-black transition uppercase cursor-pointer">
                         DONATE NOW
-                        </button>
+                    </button>
                 </div>
             </div>
         </div>
@@ -140,10 +156,10 @@
 
     </main>
 
-<div id="donateModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4 transition-all duration-300">
-        <div class="bg-white rounded-2xl max-w-md w-full p-6 md:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300 flex flex-col items-center text-center">
+    <div id="donateModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden items-center justify-center z-50 p-4 transition-all duration-300" onclick="closeDonateModalExternal(event)">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 md:p-8 shadow-2xl relative flex flex-col items-center text-center animate-modal-in">
             
-            <button onclick="closeDonateModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black transition cursor-pointer p-1 rounded-full hover:bg-gray-100">
+            <button onclick="closeDonateModal()" class="absolute top-4 Right-4 text-gray-400 hover:text-black transition cursor-pointer p-1 rounded-full hover:bg-gray-100">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
@@ -178,6 +194,47 @@
         </div>
     </div>
 
+    <script>
+        function openDonateModal() {
+            const modal = document.getElementById('donateModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeDonateModal() {
+            const modal = document.getElementById('donateModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = ''; 
+        }
+
+        // 允许像 Page 6 一样点击弹窗外部的灰色背景自动关闭弹窗
+        function closeDonateModalExternal(event) {
+            const modal = document.getElementById('donateModal');
+            if (event.target === modal) {
+                closeDonateModal();
+            }
+        }
+
+        function copyAccountNo() {
+            const accountNo = document.getElementById('accountNo').innerText;
+            navigator.clipboard.writeText(accountNo).then(() => {
+                const copyText = document.getElementById('copyText');
+                copyText.innerText = "COPIED!";
+                setTimeout(() => {
+                    copyText.innerText = "COPY";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        // 预留占位函数防止报错
+        function openJoinModal() {}
+    </script>
+</body>
+</html>
                             
     <!-- SECOND SCREEN: ABOUT US -->
     <section id="about" class="w-full min-h-screen bg-[#F7F5F0] flex flex-col md:flex-row items-stretch border-t border-gray-200/50">
