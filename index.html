@@ -715,7 +715,7 @@
                 <p class="text-xs md:text-sm text-gray-700 font-medium leading-relaxed mb-6 min-h-[48px]">
                     Join our youth volunteer programme and make a meaningful impact in the lives of others
                 </p>
-                <a href="#join" class="w-full max-w-[160px] py-3 text-center bg-[#0B401B] hover:bg-[#115e29] text-white text-xs font-bold tracking-widest uppercase rounded shadow-[0_4px_12px_rgba(11,64,27,0.3)] transition-all duration-300">
+                <a href="#join-form-section" class="w-full max-w-[160px] py-3 text-center bg-[#0B401B] hover:bg-[#115e29] text-white text-xs font-bold tracking-widest uppercase rounded shadow-[0_4px_12px_rgba(11,64,27,0.3)] transition-all duration-300">
                     JOIN US
                 </a>
             </div>
@@ -771,21 +771,18 @@
 </section>
 
 <script>
-    // 打开弹窗
     function openBankModal() {
         const modal = document.getElementById('bankModal');
         modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // 阻止底层页面滚动
+        document.body.style.overflow = 'hidden'; 
     }
 
-    // 关闭弹窗
     function closeBankModal() {
         const modal = document.getElementById('bankModal');
         modal.classList.add('hidden');
-        document.body.style.overflow = ''; // 恢复滚动
+        document.body.style.overflow = ''; 
     }
 
-    // 点击弹窗外部背景关闭
     function closeBankModalExternal(event) {
         const modal = document.getElementById('bankModal');
         if (event.target === modal) {
@@ -793,7 +790,6 @@
         }
     }
 
-    // 快捷一键复制卡号功能
     function copyAccountNumber() {
         const accountNumber = document.getElementById('accountNum').innerText;
         navigator.clipboard.writeText(accountNumber).then(() => {
@@ -805,6 +801,10 @@
 </script>
 
 <style>
+    /* 在这里额外配置了网页整体的丝滑滚动效果 */
+    html {
+        scroll-behavior: smooth;
+    }
     @keyframes fadeIn {
         from { opacity: 0; transform: scale(0.95); }
         to { opacity: 1; transform: scale(1); }
